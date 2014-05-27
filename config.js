@@ -3,8 +3,8 @@ module.exports =  {
     ////////////////////////////////////
     // ElasticSearch Backend Settings
     ////////////////////////////////////
-    "es_host": "localhost",  // The host of Elastic Search
-    "es_port": 9200,  // The port of Elastic Search
+    "es_host": "alpaca.io",  // The host of Elastic Search
+    "es_port": 49178,  // The port of Elastic Search
     "es_using_ssl": false,  // If the ES is using SSL(https)?
     "es_username":  "",  // The basic authentication user of ES server, leave it blank if no basic auth applied
     "es_password":  "",  // The password of basic authentication of ES server, leave it blank if no basic auth applied.
@@ -14,7 +14,7 @@ module.exports =  {
     // Proxy server configurations
     ////////////////////////////////////
     // Which port listen to
-    "listen_port": 9201,
+    "listen_port": 5000,
     // Control HTTP max-Age header. Whether the browser cache static kibana files or not?
     // 0 for no-cache, unit in millisecond, default to 0
     // We strongly recommand you set to a larger number such as 2592000000(a month) to get a better loading speed
@@ -77,12 +77,11 @@ module.exports =  {
     // The following config is different from the previous basic auth settings.
     // It will be applied on the client who access kibana3.
     // Enable? true or false
-    "enable_basic_auth": false,
+    "enable_basic_auth": true,
         // Multiple user/passwd supported
         // The User&Passwd list for basic auth
         "basic_auth_users": [
-            {"user": "demo1", "password": "pwd1"},
-            {"user": "demo1", "password": "pwd2"},
+            {"user": process.env.USER, "password": process.env.PASSWORD},
         ],
 
 
